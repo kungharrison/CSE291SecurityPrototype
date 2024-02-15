@@ -2,9 +2,19 @@ body {
     font-family: 'Pacifico';
     display: flex;
     justify-content: center;
-  }
-  
-  canvas {
+    align-items: 'center';
+}
+
+button {
+    color: red;
+    font-size: 50px;
+    font-family: 'Arial';
+    background: transparent;
+    border: transparent;
+    font-weight: bold;
+}
+
+canvas {
     border: 1x solid #0a3cda;
     margin: 10px;
-  }
+}
