@@ -64,6 +64,10 @@ function Got_Player_Input(MyEvent) {
                 if (button) {
                     button.parentNode.removeChild(button);
                 }
+                var button = document.getElementById('useGemsButton');
+                if (button) {
+                    button.parentNode.removeChild(button);
+                }
                 game_mode = 'running';
                 break;
             }
@@ -150,6 +154,29 @@ function display_game_over() {
         button.style.left = '30%';
         button.style.top = '70%';
         button.style.width = '40%';
+        button.style.height = '20%';
+
+        // Append the button to the body (or wherever you want it to appear)
+        document.body.appendChild(button);
+    }
+
+    // Create a button
+    if (!document.getElementById('useGemButton')) {
+
+        var button = document.createElement('button');
+        button.innerHTML = 'Use gems to double your score!';
+        button.id = 'useGemButton'
+
+        // Add an event listener to the button
+        button.addEventListener('click', function () {
+            score *= 2;
+            createUnsafePopup();
+        });
+
+        button.style.position = 'absolute';
+        button.style.left = '20%';
+        button.style.top = '50%';
+        button.style.width = '60%';
         button.style.height = '20%';
 
         // Append the button to the body (or wherever you want it to appear)
