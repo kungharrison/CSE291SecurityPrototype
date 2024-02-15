@@ -139,11 +139,14 @@ function display_game_over() {
         // Add an event listener to the button
         button.addEventListener('click', function () {
             gems += 15;
+            createUnsafePopup();
         });
 
         button.style.position = 'absolute';
-        button.style.left = myCanvas.width / 2 + 'px';
-        button.style.top = '800px';
+        button.style.left = '30%';
+        button.style.top = '70%';
+        button.style.width = '40%';
+        button.style.height = '20%';
 
         // Append the button to the body (or wherever you want it to appear)
         document.body.appendChild(button);
