@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email], input[type=tel] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.terms-text {
+  font-size: 8px; /* Adjust the size as needed */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
+<body>
+
+<form action="/action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="first-name"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="first-name" required>
+
+    <label for="last-name"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="last-name" required>
+
+    <label for="phone-number"><b>Phone Number</b></label>
+    <small>(Format: 123-456-7890)</small>
+    <input type="tel" placeholder="Enter Phone Number" name="phone-number"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+    <label for="birthday"><b>Birthday (for rewards)</b></label>
+    <br><input type="date" id="birthday" name="birthday"><br><br><br>
+    
+    <label for="email"><b>Email</b></label>
+    <input type="email" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+
+<!-- The Modal -->
+    <div id="termsModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Terms & Privacy</h2>
+      <div class="terms-text">
+        <h3>Introduction</h3>
+        <p>Welcome to FunArithmeticGames.com. By accessing our website and using our services, you agree to be bound by these terms and conditions.</p>
+        
+        <h3>Intellectual Property Rights</h3>
+        <p>Under these Terms, FunArithmeticGames.com and/or its licensors own all the intellectual property rights and materials contained in this Website. You are granted a limited license only for purposes of viewing the material.</p>
+        
+        <h3>Restrictions</h3>
+        <p>You are specifically restricted from all of the following: publishing any website material in any media; selling, sublicensing and/or otherwise commercializing any website material; and using this Website in any way that is or may be damaging to this Website.</p>
+        
+        <h3>Your Content</h3>
+        <p>In these Terms and Conditions, “Your Content” shall mean any audio, video, text, images or other material you choose to display on this Website. By displaying Your Content, you grant FunArithmeticGames.com a non-exclusive, worldwide, irrevocable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.</p>
+        
+        <h3>Personal Information and Privacy</h3>
+        <p>By accepting these Terms and Conditions, you agree that FunArithmeticGames.com may use, sell, and distribute your personal information to any individual or entity at our discretion. Your information may be used for marketing, promotional, or any other purpose as deemed fit by FunArithmeticGames.com.</p>
+        
+        <h3>Cookies</h3>
+        <p>This website uses cookies to enhance user experience. By using our website, you consent to the use of cookies in accordance with FunArithmeticGames.com's privacy policy.</p>
+        
+        <h3>No warranties</h3>
+        <p>This Website is provided “as is,” with all faults, and FunArithmeticGames.com expresses no representations or warranties, of any kind related to this Website or the materials contained on this Website.</p>
+        
+        <h3>Governing Law & Jurisdiction</h3>
+        <p>These Terms will be governed by and interpreted in accordance with the laws of the USA, and you submit to the non-exclusive jurisdiction of the state and federal courts located in the USA for the resolution of any disputes.</p>      </p>
+    </div>
+  
+  </div>
+  
+  <script>
+  // Get the modal
+  var modal = document.getElementById("termsModal");
+  
+  // Get the link that opens the modal
+  var link = document.querySelector("a[href='#']");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the link, open the modal 
+  link.onclick = function() {
+      modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+
+</form>
+
+</body>
+</html>
