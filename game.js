@@ -58,8 +58,12 @@ function Got_Player_Input(MyEvent) {
             break;
         }
         case 'over':
-            if (new Date() - time_game_last_running > 1000 && MyEvent.target.tagName.toLowerCase() !== 'button'){
+            if (new Date() - time_game_last_running > 1000 && MyEvent.target.tagName.toLowerCase() !== 'button') {
                 reset_game();
+                var button = document.getElementById('buyGemsButton');
+                if (button) {
+                    button.parentNode.removeChild(button);
+                }
                 game_mode = 'running';
                 break;
             }
@@ -127,7 +131,7 @@ function display_intro_instructions() {
 var gems = 15;
 function display_game_over() {
     var score = 0;
-    
+
 
     // Create a button
     if (!document.getElementById('buyGemsButton')) {
