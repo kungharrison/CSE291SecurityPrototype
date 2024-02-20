@@ -222,23 +222,23 @@ button:hover {
     // if clicked go to game.html page
     if (phoneNumber.value != "")
     {
-      createUnsafePopup("You entered a phone number into a website. Try not give away your personal information");
+      createUnsafePopup("You entered a phone number into a website. Try not give away your personal information.");
     }
     else if (email.value != "")
     {
-      createUnsafePopup();
+      createUnsafePopup("You entered an email into a website. Try not give away your personal information.");
     }
     else if (birthday.value != "")
     {
-      createUnsafePopup();
+      createUnsafePopup("You entered a birthday into a website. Try not give away your personal information.");
     }
     else if (hasCheckedTerms == false)
     {
-      createUnsafePopup();
+      createUnsafePopup("You did not check the terms and privacy. Please ensure you have read the Terms & Privacy Policy before completing the signup process.");
     }
     else if (updatesCheckbox.checked == true)
     {
-      createUnsafePopup();
+      createUnsafePopup("You do not need to check this box. Try not to opt in unless you wish to receive these notifications.");
     }
     else
     {
