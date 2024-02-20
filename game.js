@@ -48,6 +48,7 @@ function ImagesTouching(thing1, thing2) {
     return true;
 }
 function Got_Player_Input(MyEvent) {
+    if (isAdActive) return;
     switch (game_mode) {
         case 'prestart': {
             game_mode = 'running';
@@ -59,16 +60,9 @@ function Got_Player_Input(MyEvent) {
         }
         case 'over':
             if (new Date() - time_game_last_running > 1000 && MyEvent.target.tagName.toLowerCase() !== 'button') {
-                reset_game();
                 var button = document.getElementById('buyGemsButton');
-                if (button) {
-                    button.parentNode.removeChild(button);
-                }
-                var button = document.getElementById('useGemsButton');
-                if (button) {
-                    button.parentNode.removeChild(button);
-                }
-                game_mode = 'running';
+                var button2 = document.getElementById('useGemsButton');
+                reset_game();
                 break;
             }
     }
@@ -147,7 +141,7 @@ function display_game_over() {
         // Add an event listener to the button
         button.addEventListener('click', function () {
             gems += 15;
-            createUnsafePopup();
+            createUnsafePopup("Purchasing gems may not be safe as you need to enter your credit card details. Make sure to be safe next time!");
         });
 
         button.style.position = 'absolute';
@@ -170,7 +164,7 @@ function display_game_over() {
         // Add an event listener to the button
         button.addEventListener('click', function () {
             score *= 2;
-            createUnsafePopup();
+            createUnsafePopup("Be careful when using gems. The game may require you to input your credit card details once you run out!");
         });
 
         button.style.position = 'absolute';
@@ -263,3 +257,73 @@ bird.x = myCanvas.width / 3;
 bird.y = myCanvas.height / 2;
 
 setInterval(Do_a_Frame, 1000 / FPS);
+
+var isAdActive = false;
+
+function createAdPopup() {
+    isAdActive = true;
+    
+    // Create a popup div
+    var popup = document.createElement('div');
+    popup.id = 'adPopup';
+    popup.style.position = 'fixed';
+    popup.style.top = '0';
+    popup.style.right = '0';
+    popup.style.bottom = '0';
+    popup.style.left = '0';
+    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    popup.style.display = 'flex';
+    popup.style.justifyContent = 'center';
+    popup.style.alignItems = 'center';
+    popup.style.flexDirection = 'column';
+
+    // Create an ad message
+    var adMessage = document.createTextNode('This is an ad');
+    popup.appendChild(adMessage);
+
+        // Create an ad message
+        var adMessage = document.createTextNode('This is an ad');
+        popup.appendChild(adMessage);
+    
+        // Create an image
+        var productImage = document.createElement('img');
+        productImage.src = 'randomad.png'; // replace with the path to your image
+        productImage.class = 'ad';
+        productImage.style.height = '300px';
+        productImage.addEventListener('click', function() {
+            createUnsafePopup("Clicking on ads may not be safe. Make sure to be safe next time!");
+        });
+        popup.appendChild(productImage);
+    
+        // Create a purchase button
+        var purchaseButton = document.createElement('button');
+    purchaseButton.innerHTML = 'Play Now!';
+    purchaseButton.class = 'ad';
+        purchaseButton.addEventListener('click', function() {
+            createUnsafePopup("Purchasing products may not be safe as you need to enter your credit card details. Make sure to be safe next time!")
+        });
+        popup.appendChild(purchaseButton);
+    
+    // Create a close button
+    var closeButton = document.createElement('button');
+    closeButton.innerHTML = 'Close Ad';
+    closeButton.style.fontSize = '10px';
+    closeButton.style.color = 'black';
+    closeButton.class = 'ad';
+    closeButton.addEventListener('click', function () {
+        isAdActive = false;
+        document.body.removeChild(popup);
+    });
+    popup.appendChild(closeButton);
+
+    // Append the popup to the body
+    document.body.appendChild(popup);
+}
+
+createAdPopup();
+
+// Call the function to create the ad popup at random intervals between 10 and 60 seconds
+setInterval(function () {
+    if (isAdActive) return;
+    createAdPopup();
+}, (Math.random() * 50 + 10) * 1000);
