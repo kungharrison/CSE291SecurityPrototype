@@ -1,5 +1,5 @@
 var numUnsafeActions = 0;
-function createUnsafePopup() {
+function createUnsafePopup(stringWrongAction) {
     // Create a popup div
     var popup = document.createElement('div');
     popup.id = 'popup';
@@ -13,7 +13,7 @@ function createUnsafePopup() {
 
     // Create a text node
     numUnsafeActions++;
-    var text = document.createTextNode('You have done an unsafe action ' + numUnsafeActions + ' times. Please be careful!');
+    var text = document.createTextNode('You have done an unsafe action: ' + stringWrongAction);
     popup.appendChild(text);
 
     // Create a close button
