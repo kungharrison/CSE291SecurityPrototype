@@ -175,7 +175,7 @@ function display_game_over() {
 
         button.style.position = 'absolute';
         button.style.left = '20%';
-        button.style.top = '50%';
+        button.style.top = '60%';
         button.style.width = '60%';
         button.style.height = '20%';
 

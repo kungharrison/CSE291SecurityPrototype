@@ -11,6 +11,11 @@ function createUnsafePopup(stringWrongAction) {
     popup.style.padding = '20px';
     popup.style.border = '1px solid #000';
 
+    // Create check if stringWrongAction is undefined
+    if (stringWrongAction === undefined) {
+        stringWrongAction = 'Make sure to be safe next time!';
+    }
+
     // Create a text node
     numUnsafeActions++;
     var text = document.createTextNode('You have done an unsafe action: ' + stringWrongAction);
