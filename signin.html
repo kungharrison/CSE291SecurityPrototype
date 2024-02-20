@@ -123,21 +123,21 @@ button:hover {
     <p>Please fill in this form to create an account.</p>
     <hr>
 
-    <label for="first-name"><b>First Name</b></label>
+    <label for="first-name"><b>First Name*</b></label>
     <input type="text" placeholder="Enter First Name" name="first-name" required>
 
-    <label for="last-name"><b>Last Name</b></label>
+    <label for="last-name"><b>Last Name*</b></label>
     <input type="text" placeholder="Enter Last Name" name="last-name" required>
 
     <label for="phone-number"><b>Phone Number</b></label>
     <small>(Format: 123-456-7890)</small>
-    <input type="tel" placeholder="Enter Phone Number" name="phone-number"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+    <input id="phone" type="tel" placeholder="Enter Phone Number" name="phone-number"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 
     <label for="birthday"><b>Birthday (for rewards)</b></label>
     <br><input type="date" id="birthday" name="birthday"><br><br><br>
     
     <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="Enter Email" name="email" required>
+    <input type="email" id="email" placeholder="Enter Email" name="email">
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
@@ -207,6 +207,12 @@ button:hover {
 
   var signUpButton = document.querySelector(".signupbtn");
 
+  var phoneNumber = document.getElementById("phone");
+
+  var email = document.getElementById("email");
+
+  var birthday = document.getElementById("birthday");
+
   var hasCheckedTerms = false;
 
   var updatesCheckbox = document.querySelector("input[type='checkbox']");
@@ -214,7 +220,19 @@ button:hover {
   signUpButton.addEventListener('mousedown', function () {
     print("clicked");
     // if clicked go to game.html page
-    if (hasCheckedTerms == false)
+    if (phoneNumber.value != "")
+    {
+      createUnsafePopup();
+    }
+    else if (email.value != "")
+    {
+      createUnsafePopup();
+    }
+    else if (birthday.value != "")
+    {
+      createUnsafePopup();
+    }
+    else if (hasCheckedTerms == false)
     {
       createUnsafePopup();
     }
