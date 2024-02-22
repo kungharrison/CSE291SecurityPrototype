@@ -51,6 +51,7 @@ function Got_Player_Input(MyEvent) {
     if (isAdActive) return;
     switch (game_mode) {
         case 'prestart': {
+            var elements = document.getElementsByClassName('ad');
             game_mode = 'running';
             break;
         }
@@ -61,7 +62,11 @@ function Got_Player_Input(MyEvent) {
         case 'over':
             if (new Date() - time_game_last_running > 1000 && MyEvent.target.tagName.toLowerCase() !== 'button') {
                 var button = document.getElementById('buyGemsButton');
-                var button2 = document.getElementById('useGemsButton');
+                var button2 = document.getElementById('useGemButton');
+                if (button) button.parentNode.removeChild(button);
+                if (button2) button2.parentNode.removeChild(button2);
+                
+                game_mode = 'prestart';
                 reset_game();
                 break;
             }
@@ -160,7 +165,6 @@ function display_game_over() {
         var button = document.createElement('button');
         button.innerHTML = 'Use gems to double your score!';
         button.id = 'useGemButton'
-
         // Add an event listener to the button
         button.addEventListener('click', function () {
             score *= 2;
@@ -277,10 +281,6 @@ function createAdPopup() {
     popup.style.alignItems = 'center';
     popup.style.flexDirection = 'column';
 
-    // Create an ad message
-    var adMessage = document.createTextNode('This is an ad');
-    popup.appendChild(adMessage);
-
         // Create an ad message
         var adMessage = document.createTextNode('This is an ad');
         popup.appendChild(adMessage);
@@ -308,7 +308,7 @@ function createAdPopup() {
     var closeButton = document.createElement('button');
     closeButton.innerHTML = 'Close Ad';
     closeButton.style.fontSize = '10px';
-    closeButton.style.color = 'black';
+    closeButton.style.color = 'white';
     closeButton.class = 'ad';
     closeButton.addEventListener('click', function () {
         isAdActive = false;

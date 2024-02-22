@@ -196,6 +196,7 @@ button:hover {
   
   <script src="helper.js"></script>
   <script>
+
   // Get the modal
   var modal = document.getElementById("termsModal");
   
@@ -218,7 +219,6 @@ button:hover {
   var updatesCheckbox = document.querySelector("input[type='checkbox']");
 
   signUpButton.addEventListener('mousedown', function () {
-    print("clicked");
     // if clicked go to game.html page
     if (phoneNumber.value != "")
     {
@@ -238,7 +238,7 @@ button:hover {
     }
     else if (updatesCheckbox.checked == true)
     {
-      createUnsafePopup("You do not need to check this box. Try not to opt in.");
+      createUnsafePopup("You do not need to check the updates box. Try not to opt into marketing emails.");
     }
     else
     {
