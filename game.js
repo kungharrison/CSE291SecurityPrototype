@@ -187,11 +187,11 @@ function display_game_over() {
     ctx.fillStyle = 'red';
     ctx.textAlign = 'center';
     ctx.fillText('Game Over', myCanvas.width / 2, 100);
+    ctx.fillText('Flag{SAFETY}',myCanvas.width / 2, 200);
     ctx.fillText('Gems: ' + gems, myCanvas.width / 2, 200);
     ctx.fillText('Score: ' + score, myCanvas.width / 2, 150);
     ctx.font = '20px Arial';
     ctx.fillText('Click, touch, or press to play again', myCanvas.width / 2, 300);
-    ctx.fillText('Flag{SAFETY}',myCanvas.width / 2, 200);
 }
 function display_bar_running_along_bottom() {
     if (bottom_bar_offset < -23) bottom_bar_offset = 0;
