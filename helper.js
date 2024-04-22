@@ -19,7 +19,7 @@ function createUnsafePopup(stringWrongAction) {
   // Create a text node
   numUnsafeActions++;
   var text = document.createTextNode(
-    "You have done an unsafe action: " + stringWrongAction
+    "You have done an unsafe action: " + stringWrongAction + " FLAG{OKAY_NOW}"
   );
   popup.appendChild(text);
 

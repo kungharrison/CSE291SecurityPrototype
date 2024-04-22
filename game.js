@@ -186,7 +186,7 @@ function display_game_over() {
     ctx.font = '30px Arial';
     ctx.fillStyle = 'red';
     ctx.textAlign = 'center';
-    ctx.fillText('Game Over', myCanvas.width / 2, 100);
+    ctx.fillText('Game Over Flag{SAFETY}', myCanvas.width / 2, 100);
     ctx.fillText('Gems: ' + gems, myCanvas.width / 2, 200);
     ctx.fillText('Score: ' + score, myCanvas.width / 2, 150);
     ctx.font = '20px Arial';
