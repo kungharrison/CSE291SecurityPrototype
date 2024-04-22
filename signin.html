@@ -222,15 +222,15 @@ button:hover {
     // if clicked go to game.html page
     if (phoneNumber.value != "")
     {
-      createUnsafePopup("You entered a phone number into a website. Try not give away your personal information.");
+      createUnsafePopup("You entered a phone number into a website. Try not give away your personal information. FLAG{CALL_ME}");
     }
     else if (email.value != "")
     {
-      createUnsafePopup("You entered an email into a website. Try not give away your personal information.");
+      createUnsafePopup("You entered an email into a website. Try not give away your personal information. FLAG{BEEP_ME} ");
     }
     else if (birthday.value != "")
     {
-      createUnsafePopup("You entered a birthday into a website. Try not give away your personal information.");
+      createUnsafePopup("You entered a birthday into a website. Try not give away your personal information. FLAG{REACH_ME}");
     }
     else if (hasCheckedTerms == false)
     {
@@ -238,7 +238,7 @@ button:hover {
     }
     else if (updatesCheckbox.checked == true)
     {
-      createUnsafePopup("You do not need to check the updates box. Try not to opt into marketing emails.");
+      createUnsafePopup("You do not need to check the updates box. Try not to opt into marketing emails. FLAG{EMAIL_ME}");
     }
     else
     {
